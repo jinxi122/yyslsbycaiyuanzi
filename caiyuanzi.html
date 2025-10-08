@@ -6,35 +6,8 @@
     <title>菜園子🥬</title>
     <link rel="stylesheet" href="css/syzdl.css"> 
     <link rel="stylesheet" href="css/fuchu.css">
-    <style>
-        body {
-            display: flex;  /* 改为块级元素 */
-            flex-direction: column;  /* 改为垂直方向 */
-            align-items: center;   /* 改为居中对齐 */
-            justify-content: center;   /* 改为居中对齐 */
-            min-height: 100vh;   /* 改为100%高度 */
-            margin: 0;    /* 改为0外边距 */
-            padding-top: 50px; /* 为导航栏留出空间 */
-        }
-        
-        div {
-            text-align: center;
-            width: 100%;
-        }
-        
-        img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-        }
-        
-        h1 {
-            font-size: 80px;
-            text-align: center;
-            color: red;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/game.css">
+    <script src="JavaScript/game.js" defer></script>
 </head>
 <body class="no-overflow">
     <div id="syszl">
@@ -44,10 +17,48 @@
         <h3><a href="fubenzhongxin.html" >副本中心</a></h3>
         <h3><a href="huamingce.html">花名册</a></h3>
     </div>
-    <div>
-        <img src="img/icons8--100.png" alt="菜園子" title="菜園子" class="fade-in-up" />
-        <h1 class="fade-in-up-delay">功能未开放，敬请期待！</h1>
-    </div>
+    
+    <!-- 小游戏部分 -->
+    <section class="game-section" id="game">
+        <div class="container">
+            <h2 class="section-title">蔬菜点击小游戏</h2>
+            <div class="game-container">
+                <p class="game-description">在30秒内尽可能多地点击蔬菜，每个蔬菜10分！  点到水果会扣分噢</p>
+                
+                <div class="game-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">得分</div>
+                        <div class="stat-value" id="game-score">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">剩余时间</div>
+                        <div class="stat-value" id="game-time">30</div>
+                    </div>
+                </div>
+                
+                <div class="game-board">
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                    <div class="vegetable">🥬</div>
+                </div>
+                
+                <div class="game-controls">
+                    <button class="game-btn" id="game-start">开始游戏</button>
+                    <button class="game-btn" id="game-reset">重置游戏</button>
+                </div>
+                
+                <div class="game-message" id="game-message">点击"开始游戏"按钮开始！</div>
+            </div>
+        </div>
+    </section>
 </body>
-
 </html>
