@@ -8,6 +8,11 @@ body {
     margin: 0;
 }
 
+/* 解决手机界面看不完整的问题 */
+body.no-overflow {
+    overflow: hidden;
+}
+
 /* 导航栏样式 */
 #syszl {
     position: fixed;
@@ -110,6 +115,11 @@ body {
     body {
         padding-top: 80px; /* 增加顶部空间，因为导航栏变高了 */
     }
+    
+    /* 修复手机界面游戏部分看不完整的问题 */
+    body.no-overflow {
+        overflow-y: auto; /* 允许垂直滚动 */
+    }
 }
 
 /* 小屏幕手机优化 */
@@ -126,5 +136,10 @@ body {
     
     body {
         padding-top: 70px;
+    }
+    
+    /* 修复小屏幕手机界面游戏部分看不完整的问题 */
+    body.no-overflow {
+        overflow-y: auto; /* 允许垂直滚动 */
     }
 }
