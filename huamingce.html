@@ -1,52 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>菜園子🥬</title>
-    <link rel="stylesheet" href="css/syzdl.css"> 
+    <title>花名册 - 菜園子🥬</title>
+    <link rel="stylesheet" href="css/syzdl.css">
     <link rel="stylesheet" href="css/fuchu.css">
-    <style>
-        body {
-            display: flex;  /* 改为块级元素 */
-            flex-direction: column;  /* 改为垂直方向 */
-            align-items: center;   /* 改为居中对齐 */
-            justify-content: center;   /* 改为居中对齐 */
-            min-height: 100vh;   /* 改为100%高度 */
-            margin: 0;    /* 改为0外边距 */
-            padding-top: 50px; /* 为导航栏留出空间 */
-        }
-        
-        div {
-            text-align: center;
-            width: 100%;
-        }
-        
-        img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-        }
-        
-        h1 {
-            font-size: 80px;
-            text-align: center;
-            color: red;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/huamingce.css">
+    <script src="JavaScript/huamingce.js" defer></script>
 </head>
-<body class="no-overflow">
+<body>
     <div id="syszl">
-        <h3><a href="index.html">首页</a></h3>
-        <h3> <a href="caiyuanzi.html">菜園子🥬</a></h3>
+       <h3><a href="index.html">首页</a></h3>
         <h3><a href="xinwe.html">新闻</a></h3>
-        <h3><a href="fubenzhongxin.html" >副本中心</a></h3>
+        <h3><a href="index.html#join-us">加入我们</a></h3>
+        <h3><a href="caiyuanzi.html">菜園子🥬</a></h3>
         <h3><a href="huamingce.html">花名册</a></h3>
     </div>
-    <div>
-        <img src="img/icons8--100.png" alt="菜園子" title="菜園子" class="fade-in-up" />
-        <h1 class="fade-in-up-delay">功能未开放，敬请期待！</h1>
+    
+    <!-- 左侧浮动选择框 -->
+    <div class="filter-sidebar">
+        <h3 class="filter-title">成员筛选</h3>
+        <div class="filter-group">
+            <div class="filter-item active" data-rank="all">
+                <span class="filter-icon">👥</span>
+                <span class="filter-text">全部成员</span>
+            </div>
+            <div class="filter-item" data-rank="长老">
+                <span class="filter-icon">👑</span>
+                <span class="filter-text">长老</span>
+            </div>
+            <div class="filter-item" data-rank="社众">
+                <span class="filter-icon">👤</span>
+                <span class="filter-text">社众</span>
+            </div>
+            <div class="filter-item" data-rank="学徒">
+                <span class="filter-icon">🎓</span>
+                <span class="filter-text">学徒</span>
+            </div>
+        </div>
     </div>
+    
+    <section class="roster-section">
+        <div class="roster-container">
+            <h1 class="roster-title">菜園子🥬 花名册</h1>
+            
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="member-search" 
+                    class="search-input" 
+                    placeholder="搜索成员姓名、职位、标签..."
+                    autocomplete="off"
+                >
+            </div>
+            
+            <div id="members-grid" class="members-grid">
+                <!-- 成员卡片将通过JavaScript动态生成 -->
+            </div>
+            
+            <div id="no-results" class="no-results" style="display: none;">
+                未找到匹配的成员，请尝试其他搜索关键词。
+            </div>
+        </div>
+    </section>
+    <h1 class="roster-title">后续正在开发</h1>
 </body>
 </html>
