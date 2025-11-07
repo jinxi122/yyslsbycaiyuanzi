@@ -5,6 +5,7 @@
     padding: 80px 0;
     background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
     min-height: calc(100vh - 70px);
+    overflow-x: hidden; /* 防止水平溢出 */
 }
 
 /* 花名册容器 */
@@ -12,6 +13,8 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%; /* 确保容器不会超出视口 */
+    box-sizing: border-box; /* 包含内边距在宽度内 */
 }
 
 /* 花名册标题 */
@@ -21,6 +24,8 @@
     margin-bottom: 50px;
     color: #d4af37;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    word-wrap: break-word; /* 允许长单词换行 */
+    padding: 0 10px; /* 添加内边距，防止文字贴边 */
 }
 
 /* 搜索框容器 */
@@ -28,6 +33,7 @@
     max-width: 600px;
     margin: 0 auto 40px;
     position: relative;
+    padding: 0 10px; /* 添加内边距 */
 }
 
 .search-input {
@@ -40,6 +46,7 @@
     color: #fff;
     outline: none;
     transition: all 0.3s ease;
+    box-sizing: border-box; /* 包含内边距在宽度内 */
 }
 
 .search-input:focus {
@@ -146,6 +153,7 @@
     margin: 5px 10px;
     border-radius: 12px;
     overflow: hidden;
+    box-sizing: border-box; /* 包含内边距在宽度内 */
 }
 
 /* 添加悬停背景效果 */
@@ -256,6 +264,7 @@
     overflow: hidden;
     font-size: 0.9rem;
     border: 1px solid transparent;
+    box-sizing: border-box; /* 包含内边距在宽度内 */
 }
 
 /* 子项悬停效果 */
@@ -296,6 +305,7 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    padding: 0 10px; /* 添加内边距，防止内容贴边 */
 }
 
 /* 成员卡片 */
@@ -306,6 +316,8 @@
     transition: all 0.3s ease;
     border: 1px solid rgba(212, 175, 55, 0.2);
     position: relative;
+    max-width: 100%; /* 确保卡片不会超出容器 */
+    box-sizing: border-box; /* 包含内边距和边框在宽度内 */
 }
 
 .member-card:hover {
@@ -347,6 +359,7 @@
     font-size: 1.5rem;
     margin-bottom: 5px;
     color: #d4af37;
+    word-wrap: break-word; /* 允许长单词换行 */
 }
 
 .member-title {
@@ -361,6 +374,7 @@
     line-height: 1.5;
     margin-bottom: 15px;
     text-align: left; /* 描述文本左对齐 */
+    word-wrap: break-word; /* 允许长单词换行 */
 }
 
 /* 成员标签 */
@@ -402,6 +416,7 @@
     padding: 40px;
     color: #aaa;
     font-size: 1.2rem;
+    word-wrap: break-word; /* 允许长单词换行 */
 }
 
 /* 加载动画 */
@@ -439,6 +454,8 @@
         margin-bottom: 20px;
         border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        padding: 0 15px; /* 添加内边距 */
+        box-sizing: border-box; /* 包含内边距在宽度内 */
     }
     
     .filter-sidebar::before {
@@ -457,6 +474,8 @@
         justify-content: center;
         border-radius: 10px;
         margin: 5px;
+        padding: 10px 15px; /* 减少内边距 */
+        box-sizing: border-box; /* 包含内边距在宽度内 */
     }
     
     .filter-sub-items {
@@ -465,15 +484,23 @@
     
     .roster-container {
         margin-left: 0;
+        padding: 0 15px; /* 添加内边距 */
     }
     
     .roster-title {
         font-size: 2.5rem;
+        padding: 0 15px; /* 添加内边距 */
     }
     
     .members-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
+        padding: 0 5px; /* 减少内边距 */
+    }
+    
+    .member-card {
+        max-width: 100%; /* 确保卡片不会超出容器 */
+        box-sizing: border-box; /* 包含内边距和边框在宽度内 */
     }
     
     .member-avatar {
@@ -487,6 +514,15 @@
     
     .member-name {
         font-size: 1.3rem;
+        word-wrap: break-word; /* 允许长单词换行 */
+    }
+    
+    .member-description {
+        word-wrap: break-word; /* 允许长单词换行 */
+    }
+    
+    .member-tags {
+        flex-wrap: wrap; /* 确保标签可以换行 */
     }
 }
 
@@ -495,18 +531,35 @@
         padding: 60px 0;
     }
     
+    .roster-container {
+        padding: 0 10px; /* 减少内边距 */
+    }
+    
     .roster-title {
         font-size: 2rem;
         margin-bottom: 30px;
+        padding: 0 10px; /* 减少内边距 */
     }
     
     .search-container {
         margin-bottom: 30px;
+        padding: 0 5px; /* 添加内边距 */
+    }
+    
+    .search-input {
+        font-size: 0.9rem; /* 减小字体大小 */
+        padding: 12px 15px; /* 减少内边距 */
     }
     
     .members-grid {
         grid-template-columns: 1fr;
         gap: 15px;
+        padding: 0; /* 移除内边距 */
+    }
+    
+    .member-card {
+        max-width: 100%; /* 确保卡片不会超出容器 */
+        margin: 0 auto; /* 居中显示 */
     }
     
     .member-avatar {
@@ -521,6 +574,7 @@
     
     .member-name {
         font-size: 1.2rem;
+        word-wrap: break-word; /* 允许长单词换行 */
     }
     
     .member-title {
@@ -529,5 +583,25 @@
     
     .member-description {
         font-size: 0.85rem;
+        word-wrap: break-word; /* 允许长单词换行 */
+    }
+    
+    .member-tag {
+        font-size: 0.75rem; /* 减小标签字体大小 */
+        padding: 4px 8px; /* 减少标签内边距 */
+    }
+    
+    /* 确保所有内容在小屏幕上不会超出容器 */
+    body {
+        overflow-x: hidden; /* 防止水平滚动 */
+    }
+    
+    .filter-item {
+        min-width: 100px; /* 减小最小宽度 */
+        font-size: 0.9rem; /* 减小字体大小 */
+    }
+    
+    .filter-icon {
+        font-size: 1.2rem; /* 减小图标大小 */
     }
 }
