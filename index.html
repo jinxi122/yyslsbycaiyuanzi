@@ -88,6 +88,13 @@
                 <div class="news-card">
                     <div class="news-image">
                         <img src="img/xiaogo.jpg" alt="百业公告图片">
+                        <div class="news-overlay">
+                            <div class="overlay-text">百业活动时间
+·百业派对:每天20:00
+-决高下:周二周三19:30-20:30
+破军杀将:周二周三19:30-21:30
+·百业货运:一周三次尽量都做一下</div>
+                        </div>
                     </div>
                     <div class="news-content">
                         <div class="news-date">2025-10-9</div>
@@ -99,6 +106,13 @@
                 <div class="news-card">
                     <div class="news-image">
                         <img src="img/icon_4bdfd32.png" alt="百业活动图片">
+                        <div class="news-overlay">
+                            <div class="overlay-text">百业活动时间
+·百业派对:每天20:00
+-决高下:周二周三19:30-20:30
+破军杀将:周二周三19:30-21:30
+·百业货运:一周三次尽量都做一下</div>
+                        </div>
                     </div>
                     <div class="news-content">
                         <div class="news-date">2025-10-9</div>
@@ -110,6 +124,11 @@
                 <div class="news-card">
                     <div class="news-image">
                         <img src="img/byqie.png" alt="百业新功能图片">
+                        <div class="news-overlay">
+                            <div class="overlay-text">
+                                报告，我副本可以躺着过吗
+                            </div>
+                        </div>
                     </div>
                     <div class="news-content">
                         <div class="news-date">2025-10-9</div>
@@ -135,8 +154,85 @@
                     <li>活跃友好的社区氛围</li>
                 </ul>
                 <p>如果你对菜園子感兴趣，欢迎随时联系我们！</p>
+                <h3 id="jiaru" style="white-space: nowrap;">游戏百业id: <span style="color: rgb(251, 255, 0);">10558256</span> &nbsp;&nbsp;&nbsp; 
+                    社主id: <span style="color: rgb(251, 255, 0);">风诉思慕</span>  &nbsp;&nbsp;&nbsp;
+                    网站反馈(游戏id) <span style="color: rgb(251, 255, 0);">0237115539</span></h3>
+
             </div>
         </div>
     </section>
+       <div id="caidan">
+        <button id="caidanMusicBtn" onclick="playCaidanMusic()">彩蛋？</button>
+        <audio id="caidanMusic" src="img/？.mp4"></audio>
+    </div>
+        <!-- 模态弹窗（隐藏，点击公告卡会显示） -->
+    <div class="modal-backdrop" id="newsModal">
+        <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalCloseBtn" aria-label="关闭">✕</button>
+            <div class="modal-content-wrapper">
+                <div class="modal-content" id="modalContent"></div>
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="活动图片">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        // 点击新闻卡打开模态并显示 overlay 文本
+        const cards = document.querySelectorAll('.news-card');
+        const modal = document.getElementById('newsModal');
+        const modalContent = document.getElementById('modalContent');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalCloseBtn');
+        
+        // 为每个新闻卡片设置对应的图片
+        const cardImages = [
+            'img/tanchuang1.png', // 第一个新闻卡片的图片
+            'img/tanchuang1 (2).png', // 第二个新闻卡片的图片
+            'img/tanchuang1 (1).png'  // 第三个新闻卡片的图片
+        ];
+
+        function openModal(text, imageIndex) {
+            modalContent.textContent = text;
+            modalImage.src = cardImages[imageIndex];
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        cards.forEach(function(card, index){
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function(e){
+                // 阻止事件冒泡（如果内部有链接）
+                e.preventDefault();
+                const overlay = card.querySelector('.overlay-text');
+                const txt = overlay ? overlay.textContent.trim() : '';
+                openModal(txt, index);
+            });
+        });
+
+        modalClose.addEventListener('click', function(e){
+            e.stopPropagation();
+            closeModal();
+        });
+
+        // 点击遮罩也关闭
+        modal.addEventListener('click', function(e){
+            if (e.target === modal) closeModal();
+        });
+
+        // ESC 关闭
+        document.addEventListener('keydown', function(e){
+            if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+        });
+    })();
+    </script>
+
 </body>
 </html>

@@ -92,4 +92,58 @@ document.addEventListener('DOMContentLoaded', function() {
     musicControls.addEventListener('mouseleave', function() {
         this.classList.remove('hover');
     });
+
+    // 彩蛋音频（互斥播放逻辑）
+    const caidanAudio = document.getElementById('caidanMusic');
+    const caidanBtn = document.getElementById('caidanMusicBtn');
+
+    // 定义全局函数以支持页面内 inline onclick="playCaidanMusic()"
+    window.playCaidanMusic = function() {
+        if (!caidanAudio) return;
+
+        // 暂停并保存背景音乐的播放状态
+        const bgWasPlaying = !audio.paused && !audio.ended;
+        if (bgWasPlaying) {
+            audio.pause();
+            playBtn.style.display = 'block';
+            pauseBtn.style.display = 'none';
+            musicControls.classList.remove('playing');
+        }
+
+        // 暂停页面上其他所有 audio（除 caidanAudio）并重置播放时间
+        document.querySelectorAll('audio').forEach(function(a) {
+            if (a !== caidanAudio) {
+                try { a.pause(); } catch (e) {}
+            }
+        });
+
+        // 从头开始播放彩蛋音频
+        try {
+            caidanAudio.currentTime = 0;
+        } catch (e) {}
+        caidanAudio.play().catch(function(err) {
+            console.log('彩蛋播放失败：', err);
+        });
+
+        // 当彩蛋音频结束时，若背景之前在播放则尝试恢复背景音乐
+        caidanAudio.onended = function() {
+            if (bgWasPlaying) {
+                audio.play().then(function() {
+                    playBtn.style.display = 'none';
+                    pauseBtn.style.display = 'block';
+                    musicControls.classList.add('playing');
+                }).catch(function() {
+                    // 无法自动恢复播放（浏览器限制）时保持静默
+                });
+            }
+        };
+    };
+
+    // 如果页面上存在彩蛋按钮，也为其绑定事件（防止 inline 丢失）
+    if (caidanBtn) {
+        caidanBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            window.playCaidanMusic();
+        });
+    }
 });
