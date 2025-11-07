@@ -306,6 +306,7 @@
     gap: 30px;
     margin-top: 40px;
     padding: 0 10px; /* 添加内边距，防止内容贴边 */
+    justify-items: center; /* 确保卡片居中对齐 */
 }
 
 /* 成员卡片 */
@@ -316,8 +317,12 @@
     transition: all 0.3s ease;
     border: 1px solid rgba(212, 175, 55, 0.2);
     position: relative;
-    max-width: 100%; /* 确保卡片不会超出容器 */
+    width: 100%; /* 确保所有卡片宽度一致 */
+    max-width: 320px; /* 设置最大宽度，确保卡片大小一致 */
     box-sizing: border-box; /* 包含内边距和边框在宽度内 */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 确保卡片高度一致 */
 }
 
 .member-card:hover {
@@ -340,6 +345,7 @@
     overflow: hidden;
     position: relative;
     border: 3px solid rgba(212, 175, 55, 0.3); /* 添加金色边框 */
+    flex-shrink: 0; /* 防止头像被压缩 */
 }
 
 .member-avatar img {
@@ -353,6 +359,9 @@
 .member-info {
     padding: 20px;
     text-align: center; /* 文本居中对齐 */
+    flex-grow: 1; /* 让信息区域填充剩余空间 */
+    display: flex;
+    flex-direction: column;
 }
 
 .member-name {
@@ -375,6 +384,7 @@
     margin-bottom: 15px;
     text-align: left; /* 描述文本左对齐 */
     word-wrap: break-word; /* 允许长单词换行 */
+    flex-grow: 1; /* 让描述区域填充剩余空间 */
 }
 
 /* 成员标签 */
@@ -382,7 +392,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 15px;
+    margin-top: auto; /* 将标签推到底部 */
     justify-content: center; /* 标签居中对齐 */
 }
 
@@ -499,7 +509,7 @@
     }
     
     .member-card {
-        max-width: 100%; /* 确保卡片不会超出容器 */
+        max-width: 280px; /* 调整最大宽度，保持一致性 */
         box-sizing: border-box; /* 包含内边距和边框在宽度内 */
     }
     
@@ -555,11 +565,13 @@
         grid-template-columns: 1fr;
         gap: 15px;
         padding: 0; /* 移除内边距 */
+        justify-items: center; /* 确保卡片居中对齐 */
     }
     
     .member-card {
-        max-width: 100%; /* 确保卡片不会超出容器 */
-        margin: 0 auto; /* 居中显示 */
+        max-width: 100%; /* 在小屏幕上允许卡片占满宽度 */
+        width: 100%;
+        box-sizing: border-box; /* 包含内边距和边框在宽度内 */
     }
     
     .member-avatar {

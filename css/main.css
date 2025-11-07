@@ -376,7 +376,7 @@
 /* 加入我们部分ID信息样式 */
 #jiaru {
     font-size: 1.2rem;
-    line-height: 1.6;
+    line-height: 1.8;
     margin: 20px 0;
     padding: 15px;
     background: rgba(0, 0, 0, 0.3);
@@ -385,6 +385,9 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
+    text-align: center; /* 居中对齐 */
+    max-width: 100%; /* 确保不会超出容器 */
+    box-sizing: border-box; /* 包含内边距在宽度内 */
 }
 
 #jiaru span {
@@ -407,7 +410,7 @@
         font-size: 1rem;
         padding: 10px;
         margin: 10px 0;
-        line-height: 1.5;
+        line-height: 1.6;
     }
     
     /* 确保ID信息在小屏幕上不会超出容器 */
