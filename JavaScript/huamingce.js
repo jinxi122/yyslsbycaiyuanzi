@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "负责团队管理和活动策划",
             avatar: "img/zhangguonv.png",
             rank: "副社长",
-            tags: ["管理", "策划"]
+            tags: ["管理", "副园主"]
         },
         {
             id: 3,
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "新手导师，负责帮助新成员快速融入团队",
             avatar: "img/zhangguonv.png",
             rank: "长老",
-            tags: ["管理", "运维"]
+            tags: ["管理", "恶猫"]
         },
         {
             id: 6,
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "暂时不知道写什么",
             avatar: "img/toxiang1 (9).png",
             rank: "社众",
-            tags: ["社众"]
+            tags: ["社众","狗"]
         },
         {
             id:35,
